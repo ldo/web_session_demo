@@ -4,7 +4,7 @@
 # chosen ping interval). This module is intended to be invoked via
 # some ASGI framework, e.g. using uvicorn:
 #
-#   uvicorn --port 6502 detect_page_closed:main
+#   uvicorn --port 6502 web_session_demo:main
 #
 # then watch the info-level log messages as you open
 # <http://127.0.0.1:6502/> in your browser, leave it open for a few
@@ -69,7 +69,7 @@ class WEBSOCK_CLOSE(enum.IntEnum) :
 # Logging
 #-
 
-LOGGING_NAME = "detect_page_closed"
+LOGGING_NAME = "web_session_demo"
   # identifies my messages in the logging module
 
 def get_logger() :
