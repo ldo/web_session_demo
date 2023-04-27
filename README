@@ -1,0 +1,14 @@
+This project illustrates a basic approach for solving the problem: how
+do you detect when the user has closed a web page? Perhaps you want to
+maintain some kind of interactive session, and have the server side
+automatically close down when the user closes the page or navigates
+away from your application, without having to require an explicit
+invocation of some logout/shutdown function.
+
+This can be done quite easily, by having the page keep a WebSocket
+connection open. The browser will automatically close this connection
+when the page is closed, and your server will be notified of that
+immediately.
+
+Lawrence D'Oliveiro <ldo@geek-central.gen.nz>
+2023 April 27
