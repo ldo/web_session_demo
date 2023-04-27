@@ -198,11 +198,15 @@ async def handle_http(scope, receive, send, logger) :
                 session_id = None
             #end if
             if session_id == None :
-                session_id = "".join \
-                  (
-                    chr(c + ord("0"))
-                    for c in random.choices(list(range(10)), k = 10)
-                  )
+                while True :
+                    session_id = "".join \
+                      (
+                        chr(c + ord("0"))
+                        for c in random.choices(list(range(10)), k = 10)
+                      )
+                    if session_id not in sessions :
+                        break
+                #end while
                 sessions[session_id] = {"count" : 0}
                 if timeout_idle_sessions_task == None :
                     timeout_idle_sessions_task = asyncio.create_task(timeout_idle_sessions(logger))
