@@ -155,7 +155,7 @@ async def timeout_idle_sessions(logger) :
         to_delete = set()
         next_expiry = None
         for sesid, ses in sessions.items() :
-            if ses["expires"] < now :
+            if ses["expires"] <= now :
                 to_delete.add(sesid)
             else :
                 if next_expiry == None :
