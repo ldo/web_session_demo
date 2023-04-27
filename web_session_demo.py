@@ -140,8 +140,10 @@ SESSION_TIMEOUT = 30.0
   # Using an unreasonably short value for testing.
 
 sessions = {}
-  # keys are valid session cookies, values are counts of concurrent WebSocket
-  # connections. Special action should probably be taken when counts go to zero.
+  # keys are valid session cookies, values are dicts with entries:
+  #     expires -- cookie expiry time (refreshed on subsequent HTTP accesses)
+  #     count   -- the number of current WebSocket connections
+  # Special action should probably be taken when the count field goes to zero.
 
 timeout_idle_sessions_task = None
   # currently-running instance of timeout_idle_sessions(), if any
